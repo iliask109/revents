@@ -10,7 +10,7 @@ import {
 
 export default function HomePage({ history }) {
   return (
-    <Segment inverted textAlign="center" vartical className="masthead">
+    <Segment inverted textAlign="center" vartical="true" className="masthead">
       <Container>
         <Header as="h1" inverted>
           <Image

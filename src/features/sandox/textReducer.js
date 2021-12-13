@@ -1,14 +1,15 @@
-import { toast } from "react-toastify";
 import {
   asyncActionError,
   asyncActionFinish,
   asyncActionStart,
 } from "../../app/async/asyncReducer";
 import { delay } from "../../app/common/util/util";
+import { toast } from "react-toastify";
 
 const INCREMENT_COUNTER = "INCREMENT_COUNTER";
 const DECREMENT_COUNTER = "DECREMENT_COUNTER";
 
+// action creators
 export function increment(amount) {
   return async function (dispatch) {
     dispatch(asyncActionStart());
@@ -21,6 +22,7 @@ export function increment(amount) {
     }
   };
 }
+
 export function decrement(amount) {
   return async function (dispatch) {
     dispatch(asyncActionStart());
@@ -35,20 +37,22 @@ export function decrement(amount) {
   };
 }
 
+// store initial data
 const initialState = {
   data: 42,
 };
-export default function testReducer(state = initialState, action) {
-  switch (action.type) {
+
+export default function testReducer(state = initialState, { type, payload }) {
+  switch (type) {
     case INCREMENT_COUNTER:
       return {
         ...state,
-        data: state.data + action.payload,
+        data: state.data + payload,
       };
     case DECREMENT_COUNTER:
       return {
         ...state,
-        data: state.data - action.payload,
+        data: state.data - payload,
       };
     default:
       return state;

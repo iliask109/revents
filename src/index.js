@@ -10,21 +10,31 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { configureStore } from "./app/store/configureStore";
 import ScrollToTop from "./app/layout/ScrollToTop";
-import { loadEvents } from "./features/events/eventActions";
 
+// creating store from our configuration taking in the reducer
 const store = configureStore();
 
-store.dispatch(loadEvents());
+const rootEl = document.getElementById("root");
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <ScrollToTop />
-      <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
-);
+function render() {
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <ScrollToTop />
+        <App />
+      </BrowserRouter>
+    </Provider>,
+    rootEl
+  );
+}
+
+if (module.hot) {
+  module.hot.accept("./app/layout/App", function () {
+    setTimeout(render);
+  });
+}
+
+render();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

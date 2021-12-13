@@ -1,7 +1,7 @@
 import {
   CREATE_EVENT,
   DELETE_EVENT,
-  FETCH_EVENT,
+  FETCH_EVENTS,
   UPDATE_EVENT,
 } from "./eventConstants";
 
@@ -29,8 +29,7 @@ export default function eventReducer(state = initialState, { type, payload }) {
         ...state,
         events: [...state.events.filter((evt) => evt.id !== payload)],
       };
-
-    case FETCH_EVENT:
+    case FETCH_EVENTS:
       return {
         ...state,
         events: payload,

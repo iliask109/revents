@@ -7,11 +7,13 @@ export function asyncActionStart() {
     type: ASYNC_ACTION_START,
   };
 }
+
 export function asyncActionFinish() {
   return {
     type: ASYNC_ACTION_FINISH,
   };
 }
+
 export function asyncActionError(error) {
   return {
     type: ASYNC_ACTION_ERROR,
@@ -19,7 +21,10 @@ export function asyncActionError(error) {
   };
 }
 
-const initialState = { loading: false, error: null };
+const initialState = {
+  loading: false,
+  error: null,
+};
 
 export default function asyncReducer(state = initialState, { type, payload }) {
   switch (type) {
@@ -27,7 +32,7 @@ export default function asyncReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         loading: true,
-        error: null,
+        error: false,
       };
     case ASYNC_ACTION_FINISH:
       return {
