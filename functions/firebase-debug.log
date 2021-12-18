@@ -1,0 +1,13 @@
+[debug] [2021-12-18T14:52:13.314Z] ----------------------------------------------------------------------
+[debug] [2021-12-18T14:52:13.316Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\97253\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy --only functions
+[debug] [2021-12-18T14:52:13.316Z] CLI Version:   9.23.3
+[debug] [2021-12-18T14:52:13.316Z] Platform:      win32
+[debug] [2021-12-18T14:52:13.316Z] Node Version:  v14.17.0
+[debug] [2021-12-18T14:52:13.375Z] Time:          Sat Dec 18 2021 16:52:13 GMT+0200 (שעון ישראל (חורף))
+[debug] [2021-12-18T14:52:13.375Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-12-18T14:52:13.489Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-12-18T14:52:13.489Z] > authorizing via signed-in user (iliask109@gmail.com)
+[debug] [2021-12-18T14:52:13.489Z] [iam] checking project revents-d8edb for permissions ["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]
+[debug] [2021-12-18T14:52:13.491Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/revents-d8edb:testIamPermissions  
+ {"permissions":["cloudfunctions.functions.create","cloudfunctions.functions.delete","cloudfunctions.functions.get","cloudfunctions.functions.list","cloudfunctions.functions.update","cloudfunctions.operations.get","firebase.projects.get"]}
