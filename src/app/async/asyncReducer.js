@@ -35,7 +35,7 @@ export default function asyncReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         loading: true,
-        error: false,
+        error: null,
       };
     case ASYNC_ACTION_FINISH:
       return {
