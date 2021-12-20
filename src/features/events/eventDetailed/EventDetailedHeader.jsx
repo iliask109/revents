@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Button, Header, Image, Item, Segment } from "semantic-ui-react";
@@ -7,6 +8,7 @@ import {
   addUserAttendance,
   cancelUserAttendance,
 } from "../../../app/firestore/firestoreService";
+import UnauthModal from "../../auth/UnauthModal";
 
 const eventImageStyle = {
   filter: "brightness(30%)",
@@ -23,7 +25,8 @@ const eventImageTextStyle = {
 
 export default function EventDetailedHeader({ event, isHost, isGoing }) {
   const [loading, setLoading] = useState(false);
-
+  const { authenticated } = useSelector((state) => state.auth);
+  const [modalOpen, setModalOpen] = useState(false);
   async function handleUserJoinEvent() {
     setLoading(true);
     try {
@@ -48,6 +51,7 @@ export default function EventDetailedHeader({ event, isHost, isGoing }) {
 
   return (
     <>
+      {modalOpen && <UnauthModal setModalOpen={setModalOpen} />}
       <Segment.Group>
         <Segment basic attached="top" style={{ padding: "0" }}>
           <Image
@@ -67,7 +71,8 @@ export default function EventDetailedHeader({ event, isHost, isGoing }) {
                   />
                   <p>{format(event.date, "MMMM d,yyyy h:mm a")}</p>
                   <p>
-                    Hosted by <strong>
+                    Hosted by{" "}
+                    <strong>
                       <Link to={`/profile/${event.hostUid}`}>
                         {event.hostedBy}
                       </Link>
@@ -89,7 +94,11 @@ export default function EventDetailedHeader({ event, isHost, isGoing }) {
               ) : (
                 <Button
                   loading={loading}
-                  onClick={handleUserJoinEvent}
+                  onClick={
+                    authenticated
+                      ? handleUserJoinEvent
+                      : () => setModalOpen(true)
+                  }
                   color="teal"
                 >
                   JOIN THIS EVENT

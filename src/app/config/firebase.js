@@ -5,7 +5,7 @@ import "firebase/compat/auth";
 import "firebase/compat/storage";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC7sKdZnFs5ZTWa1wIE6yDCFkQiXkolwnk",
+  apiKey: process.env.REACT_APP_API_KEY,
   authDomain: "revents-d8edb.firebaseapp.com",
   projectId: "revents-d8edb",
   storageBucket: "revents-d8edb.appspot.com",
