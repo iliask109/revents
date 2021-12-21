@@ -4,7 +4,7 @@ import { useHistory } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Dropdown, Image, Menu } from "semantic-ui-react";
-import { signOutWFirebase } from "../../app/firestore/fireBaseService";
+import { signOutFirebase } from "../../app/firestore/firebaseService";
 
 export default function SignedInMenu() {
   const { currentUserProfile } = useSelector((state) => state.profile);
@@ -13,7 +13,7 @@ export default function SignedInMenu() {
   async function handleSignOut() {
     try {
       history.push("/");
-      await signOutWFirebase();
+      await signOutFirebase();
     } catch (error) {
       toast.error(error.message);
     }

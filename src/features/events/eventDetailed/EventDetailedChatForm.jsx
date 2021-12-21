@@ -1,7 +1,7 @@
 import { Field, Form, Formik } from "formik";
 import React from "react";
 import { toast } from "react-toastify";
-import { addEventChatComment } from "../../../app/firestore/fireBaseService";
+import { addEventChatComment } from "../../../app/firestore/firebaseService";
 import { Loader } from "semantic-ui-react";
 import * as Yup from "yup";
 

@@ -5,7 +5,7 @@ import * as Yup from "yup";
 import MyTextInput from "../../app/common/form/MyTextInput";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { updateUserPassword } from "../../app/firestore/fireBaseService";
+import { updateUserPassword } from "../../app/firestore/firebaseService";
 
 export default function AccountPage() {
   const { currentUser } = useSelector((state) => state.auth);

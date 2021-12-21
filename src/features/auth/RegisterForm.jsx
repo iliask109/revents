@@ -6,7 +6,7 @@ import MyTextInput from "../../app/common/form/MyTextInput";
 import { Button, Divider, Label } from "semantic-ui-react";
 import { useDispatch } from "react-redux";
 import { closeModal } from "../../app/common/modals/modalReducer";
-import { registerInFirebase } from "../../app/firestore/fireBaseService";
+import { registerInFirebase } from "../../app/firestore/firebaseService";
 import SocialLogin from "./SocialLogin";
 
 export default function RegisterForm() {
